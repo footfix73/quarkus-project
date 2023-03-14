@@ -133,7 +133,7 @@ public String hola2(@PathParam("name") String name) {
 
 A continuación, vamos a probar nuestro nuevo endpoint:
 ````
-$ curl localhost:8080/hola/v1/polite/Baeldung
+$ curl localhost:8080/hola/v1/polite/Inetum
 Hello Mr/Mrs Inetum
 ````
 
@@ -177,7 +177,13 @@ Para empezar, necesitamos tener GraalVM instalado y la variable de entorno GRAAL
 Ahora pararemos la aplicación (Ctrl + C), si no está parada ya, y ejecutaremos el comando:
 
 ````
-./mvnw package -Pnative
+./mvnw package -Pnative (Quarkus)
+
+./mvnw install -Dnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
+
+./mvnw install -Dnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
+
+./mvnw install -Dnative -Dquarkus.native.container-build=true -Dquarkus.native.builder-image=quay.io/quarkus/ubi-quarkus-mandrel-builder-image:22.3-java17
 ````
 
 Esto puede tardar unos segundos en completarse. Debido a que las imágenes nativas intentan crear todo el código AOT para arrancar más rápido, como resultado, tendremos tiempos de compilación más largos.
